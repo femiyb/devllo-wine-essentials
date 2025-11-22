@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Devllo Wine Essentials
  * Description: Adds wine profile details, recommendations, and comparison tools to WooCommerce products.
- * Version: 1.0.0
+ * Version: 0.1
  * Author: Devllo
  * Text Domain: devllo-wine-essentials
  * Domain Path: /languages
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'DWE_VERSION', '1.0.0' );
+define( 'DWE_VERSION', '0.1' );
 define( 'DWE_PLUGIN_FILE', __FILE__ );
 define( 'DWE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DWE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
