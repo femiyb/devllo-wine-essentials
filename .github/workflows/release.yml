@@ -5,6 +5,8 @@ on:
   push:
     tags:
       - 'v*'
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -47,9 +49,9 @@ jobs:
           name: devllo-wine-essentials-zip
           path: dist/devllo-wine-essentials.zip
 
-      - name: Create Release
+      - name: Create Release asset
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'release'
         with:
           files: dist/devllo-wine-essentials.zip
         env:
