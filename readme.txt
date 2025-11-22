@@ -1,6 +1,4 @@
 === Devllo Wine Essentials ===
-# Devllo Wine Essentials
-A standalone WordPress plugin project.
 
 
 Contributors: devllo
