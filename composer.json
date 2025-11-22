@@ -1,0 +1,10 @@
+{
+  "name": "devllo/wine-essentials",
+  "type": "wordpress-plugin",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Devllo\\WineEssentials\\": "src/"
+    }
+  }
+}

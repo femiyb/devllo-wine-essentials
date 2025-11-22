@@ -1,0 +1,13 @@
+{
+  "apiVersion": 2,
+  "name": "devllo/wine-compare",
+  "title": "Wine Comparison (Devllo)",
+  "category": "widgets",
+  "description": "Display the two-item wine comparison table.",
+  "icon": "awards",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "devllo-wine-essentials",
+  "editorScript": "dwe-wine-compare-block-editor"
+}
