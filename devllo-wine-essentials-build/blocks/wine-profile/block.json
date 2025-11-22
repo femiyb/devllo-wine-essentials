@@ -1,0 +1,13 @@
+{
+  "apiVersion": 2,
+  "name": "devllo/wine-profile",
+  "title": "Wine Profile (Devllo)",
+  "category": "widgets",
+  "description": "Display wine profile details for the current product.",
+  "icon": "index-card",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "devllo-wine-essentials",
+  "editorScript": "dwe-wine-profile-block-editor"
+}

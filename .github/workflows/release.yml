@@ -56,4 +56,3 @@ jobs:
           files: dist/devllo-wine-essentials.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
