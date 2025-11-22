@@ -1,4 +1,8 @@
 === Devllo Wine Essentials ===
+# Devllo Wine Essentials
+A standalone WordPress plugin project.
+
+
 Contributors: devllo
 Tags: woocommerce, wine, product, comparison
 Requires at least: 6.0
