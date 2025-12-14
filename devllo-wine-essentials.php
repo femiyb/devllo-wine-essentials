@@ -109,7 +109,6 @@ class Devllo_Wine_Essentials {
         $this->loader->add_action( 'admin_init', $admin, 'maybe_save_settings' );
         $this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_assets' );
         $this->loader->add_action( 'wp_ajax_dwe_save_settings', $admin, 'ajax_save_settings' );
-
         $this->loader->add_filter( 'woocommerce_product_data_tabs', $metaboxes, 'add_wine_details_tab' );
         $this->loader->add_action( 'woocommerce_product_data_panels', $metaboxes, 'render_wine_details_panel' );
         $this->loader->add_action( 'woocommerce_admin_process_product_object', $metaboxes, 'save_wine_metadata' );

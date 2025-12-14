@@ -142,10 +142,12 @@ class Admin {
         }
 
         check_ajax_referer( 'dwe_save_settings', 'nonce' );
-        
+
         $data = isset( $_POST['settings'] )
-        ? (array) wp_unslash( $_POST['settings'] )
-        : array();
+            ? (array) wp_unslash( $_POST['settings'] )
+            : array();
+
+        $this->settings->save( $data );
 
         wp_send_json_success( array( 'message' => __( 'Settings saved.', 'devllo-wine-essentials' ) ) );
     }
