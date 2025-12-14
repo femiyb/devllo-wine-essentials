@@ -154,15 +154,24 @@ class Metaboxes {
      * Save submitted metadata to the product.
      */
     public function save_wine_metadata( $product ) {
+        if ( ! isset( $_POST['dwe_wine_meta_nonce'] ) ) {
+            return;
+        }
+
+        $nonce = sanitize_text_field( wp_unslash( $_POST['dwe_wine_meta_nonce'] ) );
+        if ( ! wp_verify_nonce( $nonce, 'dwe_save_wine_meta' ) ) {
+            return;
+        }
+
         foreach ( $this->meta_fields as $field ) {
-            $value = isset( $_POST[ $field['id'] ] ) ? wp_unslash( $_POST[ $field['id'] ] ) : '';
+            $raw_value = isset( $_POST[ $field['id'] ] ) ? wp_unslash( $_POST[ $field['id'] ] ) : '';
 
             if ( 'number' === $field['type'] ) {
-                $value = absint( $value );
+                $value = absint( $raw_value );
             } elseif ( 'textarea' === $field['type'] ) {
-                $value = sanitize_textarea_field( $value );
+                $value = sanitize_textarea_field( $raw_value );
             } else {
-                $value = sanitize_text_field( $value );
+                $value = sanitize_text_field( $raw_value );
             }
 
             if ( '_dwe_abv' === $field['id'] ) {

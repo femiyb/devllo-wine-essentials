@@ -238,7 +238,9 @@ class Compare {
                 }
                 session_start();
             }
-            $list = isset( $_SESSION['dwe_compare_list'] ) ? $_SESSION['dwe_compare_list'] : array();
+            $list = isset( $_SESSION['dwe_compare_list'] )
+            ? (array) ( $_SESSION['dwe_compare_list'] )
+            : array();
         }
 
         if ( ! is_array( $list ) ) {

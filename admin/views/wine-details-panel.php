@@ -5,6 +5,8 @@
 <div id="dwe_wine_details_data" class="panel woocommerce_options_panel hidden">
     <div class="options_group">
         <?php
+        wp_nonce_field( 'dwe_save_wine_meta', 'dwe_wine_meta_nonce' );
+
         foreach ( $fields as $field ) {
             $value = $product ? $product->get_meta( $field['id'], true ) : '';
 

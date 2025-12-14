@@ -1,10 +1,10 @@
-=== Devllo Wine Essentials ===
+=== Devllo Wine Essentials - Wine Product Profiles for WooCommerce ===
 
 
-Contributors: devllo
+Contributors: devllo, femiyb
 Tags: woocommerce, wine, product, comparison
 Requires at least: 6.0
-Tested up to: 6.4
+Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later

@@ -18,7 +18,9 @@
                     $grape = get_post_meta( $item->get_id(), '_dwe_grape', true );
                     if ( $grape ) :
                         ?>
-                        <p class="dwe-wine-card__meta"><?php printf( esc_html__( 'Grape: %s', 'devllo-wine-essentials' ), esc_html( $grape ) ); ?></p>
+                        <p class="dwe-wine-card__meta"><?php
+                        // Translators: %s is the grape varietal name.
+                        printf( esc_html__( 'Grape: %s', 'devllo-wine-essentials' ), esc_html( $grape ) ); ?></p>
                     <?php endif; ?>
                 </div>
             </article>

@@ -1,11 +1,13 @@
 <?php
 /**
- * Plugin Name: Devllo Wine Essentials
+ * Plugin Name: Devllo Wine Essentials - Wine Product Profiles for WooCommerce
  * Description: Adds wine profile details, recommendations, and comparison tools to WooCommerce products.
- * Version: 0.1
+ * Version: 1.0.0
  * Author: Devllo
  * Text Domain: devllo-wine-essentials
  * Domain Path: /languages
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -93,21 +95,6 @@ class Devllo_Wine_Essentials {
         $this->loader = new Devllo\WineEssentials\Loader();
         $this->define_admin_hooks();
         $this->define_public_hooks();
-        $this->define_locale_hook();
-    }
-
-    /**
-     * Register text domain.
-     */
-    public function set_locale() {
-        load_plugin_textdomain( 'devllo-wine-essentials', false, dirname( plugin_basename( DWE_PLUGIN_FILE ) ) . '/languages/' );
-    }
-
-    /**
-     * Load translations at init.
-     */
-    private function define_locale_hook() {
-        $this->loader->add_action( 'init', $this, 'set_locale' );
     }
 
     /**
