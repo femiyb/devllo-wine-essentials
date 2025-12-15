@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Devllo Wine Essentials - Wine Product Profiles for WooCommerce
+ * Plugin Name: Devllo Wine Essentials
  * Description: Adds wine profile details, recommendations, and comparison tools to WooCommerce products.
  * Version: 1.0.0
  * Author: Devllo

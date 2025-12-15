@@ -29,12 +29,12 @@ class Metaboxes {
                 'label'   => 'Wine Type',
                 'type'    => 'select',
                 'options' => array(
-                    ''         => 'Select wine type',
-                    'Red'      => 'Red',
-                    'White'    => 'White',
-                    'Rosé'     => 'Rosé',
-                    'Sparkling'=> 'Sparkling',
-                    'Dessert'  => 'Dessert',
+                    ''          => 'Select wine type',
+                    'Red'       => 'Red',
+                    'White'     => 'White',
+                    'Rosé'      => 'Rosé',
+                    'Sparkling' => 'Sparkling',
+                    'Dessert'   => 'Dessert',
                 ),
             ),
             'vintage'   => array(
