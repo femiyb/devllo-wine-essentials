@@ -5,6 +5,10 @@
 
 namespace Devllo\WineEssentials;
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class Loader {
 
     /**

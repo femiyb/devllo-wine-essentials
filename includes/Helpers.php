@@ -72,7 +72,7 @@ class Helpers {
             $template_name,
             $args,
             'devllo-wine-essentials/',
-            DWE_PLUGIN_DIR . 'public/templates/'
+            DEVLLOWINE_PLUGIN_DIR . 'public/templates/'
         );
     }
 }

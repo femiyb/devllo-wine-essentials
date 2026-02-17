@@ -2,7 +2,7 @@
     const { useState, useMemo, useRef } = wp.element;
     const apiFetch = wp.apiFetch;
 
-    const data = window.dweSettingsData || { fields: [], values: {} };
+    const data = window.devllowineSettingsData || { fields: [], values: {} };
 
     const groupFields = (fields) => {
         const sections = [];
@@ -86,7 +86,7 @@
                 setNotice('');
             }
             const body = new window.FormData();
-            body.append('action', 'dwe_save_settings');
+            body.append('action', 'devllowine_save_settings');
             body.append('nonce', data.nonce);
             Object.keys(payload).forEach((key) => body.append(`settings[${key}]`, payload[key]));
 

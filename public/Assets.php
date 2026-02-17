@@ -26,15 +26,15 @@ class Assets {
             return;
         }
 
-        wp_enqueue_style( 'dwe-public', DWE_PLUGIN_URL . 'assets/css/dwe-public.css', array(), DWE_VERSION );
-        wp_enqueue_script( 'dwe-public', DWE_PLUGIN_URL . 'assets/js/dwe-public.js', array( 'jquery' ), DWE_VERSION, true );
+        wp_enqueue_style( 'devllowine-public', DEVLLOWINE_PLUGIN_URL . 'assets/css/dwe-public.css', array(), DEVLLOWINE_VERSION );
+        wp_enqueue_script( 'devllowine-public', DEVLLOWINE_PLUGIN_URL . 'assets/js/dwe-public.js', array( 'jquery' ), DEVLLOWINE_VERSION, true );
 
         wp_localize_script(
-            'dwe-public',
-            'dweCompare',
+            'devllowine-public',
+            'devllowineCompare',
             array(
-                'comparePage' => (int) get_option( 'dwe_compare_page_id', 0 ),
-                'enabled'     => $this->helpers->is_enabled( 'dwe_enable_compare' ),
+                'comparePage' => (int) get_option( 'devllowine_compare_page_id', 0 ),
+                'enabled'     => $this->helpers->is_enabled( 'devllowine_enable_compare' ),
             )
         );
     }

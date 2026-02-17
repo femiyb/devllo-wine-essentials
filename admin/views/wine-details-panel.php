@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /** @var array $fields */
 /** @var WC_Product|null $product */
 ?>
@@ -7,6 +11,7 @@
         <?php
         wp_nonce_field( 'dwe_save_wine_meta', 'dwe_wine_meta_nonce' );
 
+        // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
         foreach ( $fields as $field ) {
             $value = $product ? $product->get_meta( $field['id'], true ) : '';
 
@@ -42,6 +47,7 @@
                 );
             }
         }
+        // phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
         ?>
     </div>
 </div>

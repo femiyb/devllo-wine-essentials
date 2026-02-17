@@ -147,7 +147,7 @@ class Metaboxes {
         $product = wc_get_product( $post ? $post->ID : 0 );
         $fields  = $this->meta_fields;
 
-        include DWE_PLUGIN_DIR . 'admin/views/wine-details-panel.php';
+        include DEVLLOWINE_PLUGIN_DIR . 'admin/views/wine-details-panel.php';
     }
 
     /**
@@ -163,8 +163,11 @@ class Metaboxes {
             return;
         }
 
+        $post_data = isset( $_POST ) ? wp_unslash( $_POST ) : array();
+
         foreach ( $this->meta_fields as $field ) {
-            $raw_value = isset( $_POST[ $field['id'] ] ) ? wp_unslash( $_POST[ $field['id'] ] ) : '';
+            $field_id  = $field['id'];
+            $raw_value = isset( $post_data[ $field_id ] ) ? $post_data[ $field_id ] : '';
 
             if ( 'number' === $field['type'] ) {
                 $value = absint( $raw_value );

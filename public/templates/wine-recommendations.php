@@ -2,6 +2,7 @@
 <section class="dwe-wine-recommendations">
     <h3 class="dwe-wine-recommendations__title"><?php esc_html_e( 'Similar Wines', 'devllo-wine-essentials' ); ?></h3>
     <div class="dwe-wine-recommendations__grid">
+        <?php // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound ?>
         <?php foreach ( $similar as $item ) : ?>
             <article class="dwe-wine-card">
                 <a href="<?php echo esc_url( get_permalink( $item->get_id() ) ); ?>" class="dwe-wine-card__thumb">
@@ -25,5 +26,6 @@
                 </div>
             </article>
         <?php endforeach; ?>
+        <?php // phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound ?>
     </div>
 </section>

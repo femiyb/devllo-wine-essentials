@@ -62,7 +62,16 @@ class Admin {
             return;
         }
 
-        $this->settings->save( $_POST );
+        $raw  = wp_unslash( $_POST );
+        $data = array();
+
+        if ( is_array( $raw ) ) {
+            foreach ( $raw as $key => $value ) {
+                $data[ $key ] = is_scalar( $value ) ? sanitize_text_field( (string) $value ) : $value;
+            }
+        }
+
+        $this->settings->save( $data );
         add_settings_error( 'dwe_settings', 'dwe_saved', __( 'Settings saved.', 'devllo-wine-essentials' ), 'updated' );
     }
 
@@ -93,12 +102,12 @@ class Admin {
             return;
         }
 
-        wp_enqueue_style( 'dwe-admin', DWE_PLUGIN_URL . 'assets/css/dwe-admin.css', array(), DWE_VERSION );
+        wp_enqueue_style( 'devllowine-admin', DEVLLOWINE_PLUGIN_URL . 'assets/css/dwe-admin.css', array(), DEVLLOWINE_VERSION );
         wp_enqueue_script(
-            'dwe-admin-react',
-            DWE_PLUGIN_URL . 'assets/js/dwe-admin.js',
+            'devllowine-admin-react',
+            DEVLLOWINE_PLUGIN_URL . 'assets/js/dwe-admin.js',
             array( 'wp-element', 'wp-api-fetch' ),
-            DWE_VERSION,
+            DEVLLOWINE_VERSION,
             true
         );
 
@@ -122,8 +131,8 @@ class Admin {
         }
 
         wp_localize_script(
-            'dwe-admin-react',
-            'dweSettingsData',
+            'devllowine-admin-react',
+            'devllowineSettingsData',
             array(
                 'ajaxUrl' => admin_url( 'admin-ajax.php' ),
                 'nonce'   => wp_create_nonce( 'dwe_save_settings' ),
@@ -143,9 +152,15 @@ class Admin {
 
         check_ajax_referer( 'dwe_save_settings', 'nonce' );
 
-        $data = isset( $_POST['settings'] )
-            ? (array) wp_unslash( $_POST['settings'] )
-            : array();
+        // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $raw  = isset( $_POST['settings'] ) ? wp_unslash( $_POST['settings'] ) : array();
+        $data = array();
+
+        if ( is_array( $raw ) ) {
+            foreach ( $raw as $key => $value ) {
+                $data[ $key ] = is_scalar( $value ) ? sanitize_text_field( (string) $value ) : $value;
+            }
+        }
 
         $this->settings->save( $data );
 

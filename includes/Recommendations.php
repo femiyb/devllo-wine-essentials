@@ -25,19 +25,23 @@ class Recommendations {
 
         $args = array(
             'status'     => 'publish',
-            'limit'      => $limit,
-            'exclude'    => array( $product_id ),
-            'meta_query' => array(
-                array(
-                    'key'   => '_dwe_grape',
-                    'value' => $grape,
-                ),
-            ),
+            'limit'      => $limit + 1, // fetch one extra in case current product is in results.
+            'meta_key'   => '_dwe_grape', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+            'meta_value' => $grape, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
             'orderby'    => $orderby,
             'order'      => $order,
             'return'     => 'objects',
         );
 
-        return wc_get_products( $args );
+        $products = wc_get_products( $args );
+
+        $products = array_filter(
+            $products,
+            function ( $candidate ) use ( $product_id ) {
+                return (int) $candidate->get_id() !== (int) $product_id;
+            }
+        );
+
+        return array_slice( array_values( $products ), 0, $limit );
     }
 }

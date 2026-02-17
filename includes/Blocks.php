@@ -28,18 +28,18 @@ class Blocks {
         }
 
         wp_register_script(
-            'dwe-wine-compare-block-editor',
-            DWE_PLUGIN_URL . 'blocks/wine-compare/editor.js',
+            'devllowine-wine-compare-block-editor',
+            DEVLLOWINE_PLUGIN_URL . 'blocks/wine-compare/editor.js',
             array( 'wp-blocks', 'wp-element', 'wp-i18n' ),
-            DWE_VERSION,
+            DEVLLOWINE_VERSION,
             true
         );
 
         register_block_type(
-            DWE_PLUGIN_DIR . 'blocks/wine-compare',
+            DEVLLOWINE_PLUGIN_DIR . 'blocks/wine-compare',
             array(
                 'render_callback' => array( $this, 'render_compare_block' ),
-                'editor_script'   => 'dwe-wine-compare-block-editor',
+                'editor_script'   => 'devllowine-wine-compare-block-editor',
             )
         );
     }
@@ -48,10 +48,10 @@ class Blocks {
      * Render callback for compare block.
      */
     public function render_compare_block( $attributes, $content ) {
-        if ( ! $this->helpers->is_enabled( 'dwe_enable_compare' ) ) {
+        if ( ! $this->helpers->is_enabled( 'devllowine_enable_compare' ) ) {
             return '';
         }
 
-        return do_shortcode( '[dwe_compare]' );
+        return do_shortcode( '[devllowine_compare]' );
     }
 }

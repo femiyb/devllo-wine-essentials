@@ -1,4 +1,5 @@
 <?php defined( 'ABSPATH' ) || exit; ?>
+<?php // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound ?>
 <div class="dwe-compare-wrapper">
     <h3 class="dwe-compare__title"><?php echo esc_html( $title ); ?></h3>
     <table class="dwe-compare__table">
@@ -8,7 +9,7 @@
                 <?php foreach ( $products as $product ) : ?>
                     <th>
                         <a href="<?php echo esc_url( get_permalink( $product->get_id() ) ); ?>"><?php echo esc_html( $product->get_name() ); ?></a>
-                        <a class="dwe-compare__remove" href="<?php echo esc_url( add_query_arg( array( 'dwe_remove_compare' => $product->get_id(), 'dwe_nonce' => wp_create_nonce( 'dwe_compare_action' ) ) ) ); ?>">&times;</a>
+                        <a class="dwe-compare__remove" href="<?php echo esc_url( add_query_arg( array( 'devllowine_remove_compare' => $product->get_id(), 'devllowine_nonce' => wp_create_nonce( 'devllowine_compare_action' ) ) ) ); ?>">&times;</a>
                     </th>
                 <?php endforeach; ?>
             </tr>
@@ -39,3 +40,4 @@
         </tbody>
     </table>
 </div>
+<?php // phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound ?>
