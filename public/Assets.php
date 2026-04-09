@@ -26,8 +26,15 @@ class Assets {
             return;
         }
 
+        $compare_page_id = get_option( 'devllowine_compare_page_id', 0 );
+        $is_compare_page = $compare_page_id && is_page( $compare_page_id );
+
+        if ( ! is_product() && ! is_shop() && ! is_product_category() && ! is_product_tag() && ! $is_compare_page ) {
+            return;
+        }
+
         wp_enqueue_style( 'devllowine-public', DEVLLOWINE_PLUGIN_URL . 'assets/css/dwe-public.css', array(), DEVLLOWINE_VERSION );
-        wp_enqueue_script( 'devllowine-public', DEVLLOWINE_PLUGIN_URL . 'assets/js/dwe-public.js', array( 'jquery' ), DEVLLOWINE_VERSION, true );
+        wp_enqueue_script( 'devllowine-public', DEVLLOWINE_PLUGIN_URL . 'assets/js/dwe-public.js', array(), DEVLLOWINE_VERSION, true );
 
         wp_localize_script(
             'devllowine-public',

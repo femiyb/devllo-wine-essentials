@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound,WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
-define( 'DEVLLOWINE_VERSION', '0.1' );
+define( 'DEVLLOWINE_VERSION', '1.0.0' );
 define( 'DEVLLOWINE_PLUGIN_FILE', __FILE__ );
 define( 'DEVLLOWINE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DEVLLOWINE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

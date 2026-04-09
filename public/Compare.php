@@ -26,6 +26,8 @@ class Compare {
         add_shortcode( 'devllowine_compare', array( $this, 'shortcode_compare' ) );
     }
 
+    const COMPARE_MAX = 2;
+
     /**
      * Handle add/remove requests via query string.
      */
@@ -60,8 +62,18 @@ class Compare {
             }
         }
 
+        if (isset( $_GET['devllowine_clear_compare'] ) ) {
+            $this->set_compare_list( array() );
+            $should_redirect = true;
+        }
+
         if ( $should_redirect && ! headers_sent() ) {
-            wp_safe_redirect( remove_query_arg( array( 'devllowine_add_compare', 'devllowine_remove_compare' ) ) );
+            wp_safe_redirect( remove_query_arg( array(
+                'devllowine_add_compare',
+                'devllowine_remove_compare',
+                'devllowine_clear_compare',
+                'devllowine_nonce',
+            ) ) );
             exit;
         }
     }
@@ -138,11 +150,22 @@ class Compare {
             return '';
         }
 
+        $empty = $this->helpers->get_option( 'devllowine_compare_empty_text', __( 'Add two wines to compare.', 'devllo-wine-essentials' ) );
+
         $product_ids = $this->get_compare_list();
 
         if ( empty( $product_ids ) ) {
-            $empty = $this->helpers->get_option( 'devllowine_compare_empty_text', __( 'Add two wines to compare.', 'devllo-wine-essentials' ) );
-            return '<p>' . esc_html( $empty ) . '</p>';
+            ob_start();
+            $this->helpers->get_template(
+                'wine-compare-table.php',
+                array(
+                    'products' => array(),
+                    'title'    => $this->helpers->get_option( 'devllowine_compare_title', __( 'Wine Comparison', 'devllo-wine-essentials' ) ),
+                    'fields'   => array(),
+                    'empty'    => $empty,
+                )
+            );
+            return ob_get_clean();
         }
 
         $products = array();
@@ -159,11 +182,12 @@ class Compare {
 
         ob_start();
         $this->helpers->get_template(
-                'wine-compare-table.php',
+            'wine-compare-table.php',
             array(
                 'products' => $products,
                 'title'    => $this->helpers->get_option( 'devllowine_compare_title', __( 'Wine Comparison', 'devllo-wine-essentials' ) ),
                 'fields'   => $this->get_compare_fields(),
+                'empty'    => $empty,
             )
         );
         return ob_get_clean();
@@ -204,7 +228,7 @@ class Compare {
         $list[] = $product_id;
 
         $list = array_values( array_unique( array_map( 'absint', $list ) ) );
-        $list = array_slice( $list, -2 );
+        $list = array_slice( $list, -self::COMPARE_MAX );
 
         $this->set_compare_list( $list );
     }
@@ -249,8 +273,8 @@ class Compare {
 
         $list = array_values( array_unique( array_map( 'absint', $list ) ) );
 
-        if ( count( $list ) > 2 ) {
-            $list = array_slice( $list, -2 );
+        if ( count( $list ) > self::COMPARE_MAX ) {
+            $list = array_slice( $list, -self::COMPARE_MAX );
         }
 
         return $list;
@@ -260,7 +284,7 @@ class Compare {
      * Store list in a session container.
      */
     protected function set_compare_list( $list ) {
-        $list = array_slice( array_values( array_unique( array_map( 'absint', (array) $list ) ) ), -2 );
+        $list = array_slice( array_values( array_unique( array_map( 'absint', (array) $list ) ) ), -self::COMPARE_MAX );
 
         if ( function_exists( 'WC' ) && WC()->session ) {
             WC()->session->set( 'devllowine_compare_list', $list );

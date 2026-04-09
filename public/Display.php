@@ -52,7 +52,7 @@ class Display {
      * Render badge markup.
      */
     protected function render_badge( WC_Product $product, $context = 'archive' ) {
-        if ( ! $this->helpers->is_enabled( 'dwe_show_badge' ) ) {
+        if ( ! $this->helpers->is_enabled( 'devllowine_show_badge' ) ) {
             return;
         }
         $badge = get_post_meta( $product->get_id(), '_dwe_badge', true );
@@ -67,7 +67,7 @@ class Display {
      * Output wine profile block on product page.
      */
     public function display_wine_profile() {
-        if ( ! $this->helpers->is_enabled( 'dwe_enable_profile' ) ) {
+        if ( ! $this->helpers->is_enabled( 'devllowine_enable_profile' ) ) {
             return;
         }
 
@@ -86,7 +86,7 @@ class Display {
         $allowed_fields = array();
         $field_keys     = array( 'highlights', 'wine_type', 'vintage', 'region', 'grape', 'body', 'sweetness', 'aroma', 'winery', 'appellation', 'producer', 'drinking_style', 'abv', 'pairs_with' );
         foreach ( $field_keys as $key ) {
-            if ( $this->helpers->is_enabled( 'dwe_show_' . $key ) ) {
+            if ( $this->helpers->is_enabled( 'devllowine_show_' . $key ) ) {
                 $allowed_fields[] = $key;
             }
         }
@@ -105,7 +105,7 @@ class Display {
      * Output similar wines beneath product summary.
      */
     public function display_similar_wines() {
-        if ( ! $this->helpers->is_enabled( 'dwe_enable_similar' ) ) {
+        if ( ! $this->helpers->is_enabled( 'devllowine_enable_similar' ) ) {
             return;
         }
 

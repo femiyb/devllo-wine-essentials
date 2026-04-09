@@ -41,6 +41,8 @@ class Metaboxes {
                 'id'    => '_dwe_vintage',
                 'label' => 'Vintage',
                 'type'  => 'number',
+                'min'   => 1900,
+                'max'   => (int) date( 'Y' ),
             ),
             'winery'    => array(
                 'id'    => '_dwe_winery',
@@ -163,7 +165,7 @@ class Metaboxes {
             return;
         }
 
-        $post_data = isset( $_POST ) ? wp_unslash( $_POST ) : array();
+        $post_data = wp_unslash( $_POST );
 
         foreach ( $this->meta_fields as $field ) {
             $field_id  = $field['id'];

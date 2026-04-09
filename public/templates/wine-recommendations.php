@@ -16,12 +16,22 @@
                         <div class="dwe-wine-card__price"><?php echo wp_kses_post( $item->get_price_html() ); ?></div>
                     <?php endif; ?>
                     <?php
-                    $grape = get_post_meta( $item->get_id(), '_dwe_grape', true );
-                    if ( $grape ) :
-                        ?>
-                        <p class="dwe-wine-card__meta"><?php
-                        // Translators: %s is the grape varietal name.
-                        printf( esc_html__( 'Grape: %s', 'devllo-wine-essentials' ), esc_html( $grape ) ); ?></p>
+                    $grape   = get_post_meta( $item->get_id(), '_dwe_grape', true );
+                    $vintage = get_post_meta( $item->get_id(), '_dwe_vintage', true );
+                    $type    = get_post_meta( $item->get_id(), '_dwe_wine_type', true );
+                    ?>
+                    <?php if ( $type || $vintage ) : ?>
+                        <p class="dwe-wine-card__meta">
+                            <?php
+                            $parts = array_filter( array( $type, $vintage ) );
+                            echo esc_html( implode( ' &middot; ', $parts ) );
+                            ?>
+                        </p>
+                    <?php endif; ?>
+                    <?php if ( $grape ) : ?>
+                        <p class="dwe-wine-card__meta">
+                            <?php printf( esc_html__( 'Grape: %s', 'devllo-wine-essentials' ), esc_html( $grape ) ); ?>
+                        </p>
                     <?php endif; ?>
                 </div>
             </article>

@@ -1,156 +1,294 @@
+:root {
+    --dwe-accent: currentColor;
+}
+
+/* ── Wine profile ── */
 .dwe-wine-profile {
-  border: 1px solid #e5e5e5;
-  padding: 16px;
-  margin: 24px 0;
-  background: #fffaf5;
+    border: 1px solid;
+    border-color: inherit;
+    padding: 16px;
+    margin: 24px 0;
+    animation: dwe-fadein 0.25s ease forwards;
 }
 
 .dwe-wine-profile__title {
-  margin: 0 0 12px;
-  font-weight: 600;
+    margin: 0 0 12px;
 }
 
 .dwe-wine-profile__highlights {
-  margin: 0 0 12px;
-  font-size: 14px;
-  color: #444;
+    margin: 0 0 12px;
+    font-style: italic;
+}
+
+.dwe-wine-profile__label {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    opacity: 0.6;
+    margin-bottom: 3px;
 }
 
 .dwe-wine-profile__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-  margin: 0;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax( 140px, 1fr ) );
+    gap: 12px;
+    margin: 0 0 12px;
 }
 
 .dwe-wine-profile__item dt {
-  font-weight: 600;
-  margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 .dwe-wine-profile__item dd {
-  margin: 0;
+    margin: 0;
 }
 
 .dwe-wine-profile__section {
-  margin-top: 14px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid;
+    border-color: inherit;
 }
 
-.dwe-wine-profile__section h4 {
-  margin: 0 0 6px;
+.dwe-wine-profile__pairs {
+    margin: 4px 0 0;
 }
 
+/* ── Badge ── */
 .dwe-wine-badge {
-  display: inline-block;
-  padding: 4px 9px;
-  border-radius: 999px;
-  background: #0d9488;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    font-size: 0.75em;
+    font-weight: 600;
 }
 
-.woocommerce ul.products li.product .woocommerce-LoopProduct-link {
-  position: relative;
-  display: block;
+.dwe-badge-overlay {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 6;
+    pointer-events: none;
 }
 
-.woocommerce ul.products li.product .dwe-badge-overlay {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 6;
-  pointer-events: none;
+.dwe-badge-single {
+    top: 10px;
+    left: 10px;
 }
 
-.woocommerce div.product .woocommerce-product-gallery,
-.woocommerce div.product div.images {
-  position: relative;
-}
-
-.woocommerce div.product .woocommerce-product-gallery .flex-viewport,
-.woocommerce div.product div.images .woocommerce-product-gallery__wrapper {
-  position: relative;
-}
-
-.woocommerce div.product .dwe-badge-overlay {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 6;
-  pointer-events: none;
-}
-
+/* ── Recommendations ── */
 .dwe-wine-recommendations {
-  margin: 32px 0;
+    margin: 32px 0;
+    animation: dwe-fadein 0.25s ease forwards;
+}
+
+.dwe-wine-recommendations__title {
+    margin: 0 0 16px;
 }
 
 .dwe-wine-recommendations__grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat( auto-fit, minmax( 220px, 1fr ) );
 }
 
 .dwe-wine-card {
-  border: 1px solid #e5e5e5;
-  background: #fff;
-  padding: 12px;
-  display: flex;
-  gap: 12px;
+    border: 1px solid;
+    border-color: inherit;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dwe-wine-card__thumb {
+    flex-shrink: 0;
 }
 
 .dwe-wine-card__thumb img {
-  width: 96px;
-  height: auto;
+    width: 96px;
+    height: auto;
+    display: block;
+}
+
+.dwe-wine-card__body {
+    flex: 1;
+    min-width: 120px;
 }
 
 .dwe-wine-card__title {
-  margin: 0 0 6px;
-  font-size: 1rem;
+    margin: 0 0 6px;
 }
 
 .dwe-wine-card__price {
-  font-weight: 600;
-  margin-bottom: 4px;
+    margin-bottom: 4px;
 }
 
+.dwe-wine-card__meta {
+    font-size: 0.85em;
+    opacity: 0.7;
+    margin: 4px 0 0;
+}
+
+/* ── Compare table ── */
 .dwe-compare-wrapper {
-  overflow-x: auto;
-  margin: 24px 0;
+    overflow-x: auto;
+    margin: 24px 0;
 }
 
 .dwe-compare__table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .dwe-compare__table th,
 .dwe-compare__table td {
-  border: 1px solid #e5e5e5;
-  padding: 10px;
-  text-align: left;
+    border: 1px solid;
+    border-color: inherit;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.dwe-compare__corner {
+    width: 25%;
+}
+
+.dwe-compare__product-col {
+    width: 37.5%;
+}
+
+.dwe-compare__product-image {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.dwe-compare__product-image img {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+.dwe-compare__product-name {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.dwe-compare__product-price {
+    margin-bottom: 6px;
+    font-size: 0.9em;
 }
 
 .dwe-compare__remove {
-  margin-left: 6px;
-  color: #a00;
-  text-decoration: none;
+    display: inline-block;
+    font-size: 0.8em;
+    opacity: 0.6;
+    text-decoration: none;
 }
 
+.dwe-compare__remove:hover {
+    opacity: 1;
+}
+
+.dwe-compare__label {
+    font-size: 0.8em;
+    opacity: 0.7;
+    font-weight: 500;
+}
+
+.dwe-compare__value {
+    font-size: 0.9em;
+}
+
+.dwe-compare__footer-col {
+    vertical-align: middle;
+}
+
+.dwe-compare__clear {
+    text-align: right;
+    border-top: none;
+    padding-top: 6px;
+}
+
+.dwe-compare__clear-link {
+    font-size: 0.8em;
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+.dwe-compare__clear-link:hover {
+    opacity: 1;
+}
+
+.dwe-empty {
+    opacity: 0.35;
+}
+
+/* ── Scale bars (compare table) ── */
+.dwe-scale {
+    margin-top: 5px;
+}
+
+.dwe-scale__bar {
+    height: 3px;
+    background: currentColor;
+    opacity: 0.15;
+    border-radius: 2px;
+    position: relative;
+}
+
+.dwe-scale__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    border-radius: 2px;
+    background: currentColor;
+    opacity: 0.5;
+}
+
+/* ── Compare button ── */
 .dwe-add-compare.button {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  width: auto !important;
-  min-width: 0 !important;
-  padding: 0.55em 1.2em !important;
-  text-transform: none;
-  font-weight: 600;
-  margin-top: 8px;
+    margin-top: 8px;
 }
 
-.dwe-add-compare.button.added {
-  opacity: 0.9;
+.dwe-add-compare.is-loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.dwe-single-compare {
+    margin-top: 8px;
+}
+
+/* ── Fade-in animation ── */
+@keyframes dwe-fadein {
+    from {
+        opacity: 0;
+        transform: translateY( 6px );
+    }
+    to {
+        opacity: 1;
+        transform: translateY( 0 );
+    }
+}
+
+@media ( prefers-reduced-motion: reduce ) {
+    .dwe-wine-profile,
+    .dwe-wine-recommendations {
+        animation: none;
+    }
+}
+
+/* ── Sticky first column on mobile ── */
+@media ( max-width: 640px ) {
+    .dwe-compare__table th:first-child,
+    .dwe-compare__table td:first-child {
+        position: sticky;
+        left: 0;
+        background: inherit;
+        z-index: 1;
+    }
 }

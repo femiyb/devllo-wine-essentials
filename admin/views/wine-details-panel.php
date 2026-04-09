@@ -43,6 +43,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                         'type'        => $field['type'],
                         'data_type'   => 'number' === $field['type'] ? 'decimal' : 'text',
                         'description' => '',
+                        'custom_attributes' => isset($field['min']) ? array(
+                            'min' => $field['min'],
+                            'max' => $field['max'],
+                        ) : array(),
                     )
                 );
             }

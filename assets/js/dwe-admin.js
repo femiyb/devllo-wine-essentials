@@ -4,6 +4,17 @@
 
     const data = window.devllowineSettingsData || { fields: [], values: {} };
 
+    function debounce (fn, delay) {
+        var timer;
+        return function () {
+            var args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                fn.apply(null, args);
+            }, delay);
+        };
+    }
+
     const groupFields = (fields) => {
         const sections = [];
         let current = { title: 'General', id: 'general', items: [] };
@@ -75,7 +86,7 @@
         const handleChange = (id, val) => {
             const next = { ...values, [id]: val };
             setValues(next);
-            doSave(true, next);
+            debouncedSave(true, next);
         };
 
         const doSave = (autoSave = false, currentValues = null) => {
@@ -105,6 +116,8 @@
                     }
                 });
         };
+
+        const debouncedSave = useMemo( () => debounce(doSave, 500), [] );
 
         return wp.element.createElement(
             'div',
