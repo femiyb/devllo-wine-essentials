@@ -1,5 +1,5 @@
 === Devllo Wine Toolkit for WooCommerce ===
-Contributors: devlloplugins
+Contributors: devllo
 Tags: woocommerce, wine, product details, wine profile, wine comparison
 Requires at least: 6.0
 Tested up to: 6.9
