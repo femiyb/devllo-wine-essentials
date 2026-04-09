@@ -1,6 +1,6 @@
 <?php
 /**
- * Helper utilities for Devllo Wine Essentials.
+ * Helper utilities for Devllo Wine Toolkit for WooCommerce.
  */
 
 namespace Devllo\WineEssentials;

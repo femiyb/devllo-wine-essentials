@@ -38,8 +38,8 @@ class Admin {
     public function register_menu() {
         add_submenu_page(
             'woocommerce',
-            __( 'Wine Essentials', 'devllo-wine-essentials' ),
-            __( 'Wine Essentials', 'devllo-wine-essentials' ),
+            __( 'Wine Toolkit', 'devllo-wine-essentials' ),
+            __( 'Wine Toolkit', 'devllo-wine-essentials' ),
             'manage_woocommerce',
             'dwe-wine-essentials',
             array( $this, 'render_settings_page' )
@@ -86,7 +86,7 @@ class Admin {
         settings_errors( 'dwe_settings' );
         ?>
         <div class="wrap dwe-settings-wrap">
-            <h1><?php esc_html_e( 'Wine Essentials', 'devllo-wine-essentials' ); ?></h1>
+            <h1><?php esc_html_e( 'Wine Toolkit', 'devllo-wine-essentials' ); ?></h1>
             <p class="dwe-settings-lede"><?php esc_html_e( 'Adjust wine profile placement, similar wines, and compare controls.', 'devllo-wine-essentials' ); ?></p>
             <div id="dwe-settings-root"></div>
             <noscript><?php esc_html_e( 'This screen requires JavaScript enabled.', 'devllo-wine-essentials' ); ?></noscript>

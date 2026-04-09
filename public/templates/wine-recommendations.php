@@ -30,7 +30,8 @@
                     <?php endif; ?>
                     <?php if ( $grape ) : ?>
                         <p class="dwe-wine-card__meta">
-                            <?php printf( esc_html__( 'Grape: %s', 'devllo-wine-essentials' ), esc_html( $grape ) ); ?>
+                           <?php // translators: %s is the field name.
+                            printf( esc_html__( 'Grape: %s', 'devllo-wine-essentials' ), esc_html( $grape ) ); ?>
                         </p>
                     <?php endif; ?>
                 </div>

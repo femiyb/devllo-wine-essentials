@@ -1,6 +1,6 @@
 <?php
 /**
- * WooCommerce settings integration for Devllo Wine Essentials.
+ * WooCommerce settings integration for Devllo Wine Toolkit for WooCommerce.
  */
 
 namespace Devllo\WineEssentials;

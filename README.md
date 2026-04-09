@@ -1,4 +1,4 @@
-=== Devllo Wine Essentials ===
+=== Devllo Wine Toolkit for WooCommerce ===
 
 
 Contributors: devllo
@@ -13,13 +13,13 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Adds wine profile fields, simple recommendations, and a two-item comparison flow for WooCommerce products.
 
 == Description ==
-Devllo Wine Essentials extends WooCommerce with a Wine Details tab, frontend wine profile display, lightweight recommendations based on grape varietal, and a two-item comparison table via the `[dwe_compare]` shortcode. No custom tables are created; all data is stored using post meta and WooCommerce settings.
+Devllo Wine Toolkit for WooCommerce extends WooCommerce with a Wine Details tab, frontend wine profile display, lightweight recommendations based on grape varietal, and a two-item comparison table via the `[dwe_compare]` shortcode. No custom tables are created; all data is stored using post meta and WooCommerce settings.
 
 == Installation ==
 1. Upload the plugin files to `/wp-content/plugins/devllo-wine-essentials/` or install via the Plugins screen.
 2. Activate the plugin through the "Plugins" screen.
 3. Open any product and fill out the **Wine Details** tab fields.
-4. Add the `[dwe_compare]` shortcode to a page and select it under WooCommerce → Settings → Wine Essentials.
+4. Add the `[dwe_compare]` shortcode to a page and select it under WooCommerce → Settings → Wine Toolkit.
 
 == Frequently Asked Questions ==
 = Where is data stored? =

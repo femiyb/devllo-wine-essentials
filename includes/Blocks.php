@@ -1,6 +1,6 @@
 <?php
 /**
- * Gutenberg blocks for Devllo Wine Essentials.
+ * Gutenberg blocks for Devllo Wine Toolkit for WooCommerce.
  */
 
 namespace Devllo\WineEssentials;

@@ -42,7 +42,7 @@ class Metaboxes {
                 'label' => 'Vintage',
                 'type'  => 'number',
                 'min'   => 1900,
-                'max'   => (int) date( 'Y' ),
+                'max'   => (int) gmdate( 'Y' ),
             ),
             'winery'    => array(
                 'id'    => '_dwe_winery',

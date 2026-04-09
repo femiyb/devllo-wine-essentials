@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Devllo Wine Essentials">
-    <description>WordPress coding standards for the Devllo Wine Essentials plugin.</description>
+<ruleset name="Devllo Wine Toolkit for WooCommerce">
+    <description>WordPress coding standards for the Devllo Wine Toolkit for WooCommerce plugin.</description>
     <file>.</file>
     <exclude-pattern>vendor/*</exclude-pattern>
     <exclude-pattern>node_modules/*</exclude-pattern>
